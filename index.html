@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Header: greeting, clock, theme toggle -->
+    <header class="dashboard-header">
+      <div class="header-greeting">
+        <h1 id="greeting">Hello</h1>
+        <p class="user-name" id="user-name">friend</p>
+      </div>
+
+      <div class="header-clock">
+        <time class="clock" id="clock" aria-label="Current time">--:--</time>
+        <p class="date" id="date">Loading…</p>
+      </div>
+
+      <button class="theme-toggle" id="theme-toggle" type="button"
+              aria-label="Switch between dark and light theme" title="Toggle theme">
+        <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+      </button>
+    </header>
+
+    <!-- Dashboard cards -->
+    <main class="dashboard">
+      <!-- To-Do List -->
+      <section class="card card--todo" aria-labelledby="todo-title">
+        <header class="card__header">
+          <h2 class="card__title" id="todo-title">To-Do List</h2>
+          <span class="card__hint" id="todo-count">0 tasks</span>
+        </header>
+
+        <form class="todo-form" id="todo-form">
+          <input type="text" id="todo-input" class="todo-input"
+                 placeholder="Add a new task…" aria-label="New task" />
+          <button type="submit" class="btn btn--accent">Add</button>
+        </form>
+
+        <p class="todo-warning" id="todo-warning" role="alert" hidden></p>
+
+        <div class="todo-stats" id="todo-stats" hidden>
+          <div class="stat"><span class="stat__num" id="stat-total">0</span><span class="stat__label">Total</span></div>
+          <div class="stat"><span class="stat__num" id="stat-done">0</span><span class="stat__label">Done</span></div>
+          <div class="stat"><span class="stat__num" id="stat-pending">0</span><span class="stat__label">Pending</span></div>
+        </div>
+
+        <ul class="todo-list" id="todo-list" aria-live="polite">
+          <li class="empty-state">No tasks yet — add one above.</li>
+        </ul>
+      </section>
+
+      <!-- Focus Timer -->
+      <section class="card card--timer" aria-labelledby="timer-title">
+        <header class="card__header">
+          <h2 class="card__title" id="timer-title">Focus Timer</h2>
+          <span class="card__hint">25 min focus</span>
+        </header>
+
+        <div class="timer-display">
+          <time class="timer-time" id="timer-time" aria-label="Focus timer">25:00</time>
+        </div>
+
+        <div class="timer-controls">
+          <button type="button" class="btn btn--accent" id="timer-start">Start</button>
+          <button type="button" class="btn btn--ghost" id="timer-pause">Pause</button>
+          <button type="button" class="btn btn--ghost" id="timer-reset">Reset</button>
+        </div>
+
+        <p class="timer-message" id="timer-message" role="status" hidden></p>
+      </section>
+
+      <!-- Quick Links -->
+      <section class="card card--links" aria-labelledby="links-title">
+        <header class="card__header">
+          <h2 class="card__title" id="links-title">Quick Links</h2>
+          <span class="card__hint">Favorites</span>
+        </header>
+
+        <form class="links-form" id="links-form" novalidate>
+          <input type="text" id="link-name" class="links-input"
+                 placeholder="Link name" aria-label="Link name" />
+          <input type="url" id="link-url" class="links-input"
+                 placeholder="https://example.com" aria-label="Link address" />
+          <button type="submit" class="btn btn--accent">Add link</button>
+        </form>
+
+        <p class="links-warning" id="links-warning" role="alert" hidden></p>
+
+        <ul class="links-list" id="links-list" aria-live="polite">
+          <li class="empty-state">No links yet — add one above.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      Life Dashboard · CodingCamp project · Phase A (structure &amp; styling)
+    </footer>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
